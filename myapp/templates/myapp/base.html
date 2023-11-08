@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'myapp/css/bootstrap.min.css' %}"><script src="{% static 'myapp/js/bootstrap.min.js' %}"></script>-->
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/css/style.css' %}">
+    <!--favicon-->
+    <link rel="icon" href="{% static 'myapp/images/favicon.png' %}" type="image/png">
+    <!--inter 글꼴-->
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <title>DRT</title>
+</head>
+
+<body>
+    {% block content %}{% endblock %}
+</body>
+
+</html>

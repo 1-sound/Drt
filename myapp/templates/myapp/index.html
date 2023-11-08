@@ -1,0 +1,8 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+{% include 'myapp/navbar.html' %}
+    <div class="indexdiv">
+        <h1>Hello, DRT!</h1>
+        <a href="{% url 'map' %}">map</a>
+    </div>
+{% endblock %}

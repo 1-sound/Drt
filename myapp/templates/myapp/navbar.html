@@ -1,0 +1,14 @@
+{% load static %}
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a href="{% url 'index' %}"><img class="navbar-brand-logo" src="{% static 'myapp/images/logo.png'%}" alt="icon-menu"></a>
+        <a class="navbar-brand-drt" href="{% url 'index' %}">&nbsp;DRT</a>
+    </div>
+
+    {% if user.is_authenticated %}
+    <a class="navbar-link" aria-current="page" href="{% url 'logout' %}">
+        {{ user.username }} (로그아웃)</a>
+    {% else %}
+    <a class="navbar-signin" href="{% url 'login' %}">로그인</a>
+    {% endif %}
+</nav>

@@ -1,0 +1,45 @@
+{% extends "myapp/base.html" %}
+{% block content %}
+    <div class="signup">
+        <div class="signup-text">회원가입</div>
+        <form method="post" action="{% url 'signup' %}" class="signup-form">
+            {% csrf_token %}
+            <div class="signup-input-div">
+                <input type="text" class="signup-input" name="username" id="username" autocomplete="off"
+                    value="{{ form.username.value|default_if_none:'' }}" placeholder="사용자 이름">
+                </div>
+                {% if form.errors %}
+                <div class="signup-errors">{{ form.username.errors.as_text|cut:'*' }}</div>
+                {% endif %}
+                <div class="signup-input-div">
+                <input type="password" class="signup-input" name="password1" id="password1" autocomplete="off"
+                    value="{{ form.password1.value|default_if_none:'' }}" placeholder="비밀번호">
+                </div>
+                {% if form.errors %}
+                <div class="signup-errors">{{ form.password1.errors.as_text|cut:'*' }}</div>
+                {% endif %}
+            <div class="signup-input-div">
+                <input type="password" class="signup-input" name="password2" id="password2" autocomplete="off"
+                    value="{{ form.password2.value|default_if_none:'' }}" placeholder="비밀번호 확인">
+                </div>
+                {% if form.errors %}
+                <div class="signup-errors">{{ form.password2.errors.as_text|cut:'*' }}</div>
+                {% endif %}
+            <div class="signup-input-div">
+                <input type="text" class="signup-input" name="email" id="email" autocomplete="off"
+                    value="{{ form.email.value|default_if_none:'' }}" placeholder="이메일">
+                </div>
+                {% if form.errors %}
+                <div class="signup-errors">{{ form.email.errors.as_text|cut:'*' }}</div>
+                {% endif %}
+            <div class="signup-input-div">
+                <input type="text" class="signup-input" name="verification_code" id="verification_code" autocomplete="off"
+                    value="{{ form.verification_code.value|default_if_none:'' }}" placeholder="인증 코드">
+                </div>
+                {% if form.errors %}
+                <div class="signup-errors">{{ form.verification_code.errors.as_text|cut:'*' }}</div>
+                {% endif %}
+            <button type="submit" class="signup-signup">생성하기</button>
+        </form>
+    </div>
+{% endblock %}

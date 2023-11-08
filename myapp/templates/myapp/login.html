@@ -1,0 +1,23 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<div class="login">
+    <h1 class="login-logo">Drt</h1>
+    <form method="post" action="{% url 'login' %}" class="login-form">
+        {% csrf_token %}
+        <div class="login-input-div">
+            <input type="text" class="login-input" name="username" id="username" autocomplete="off"
+                value="{{ form.username.value|default_if_none:'' }}" placeholder="사용자 이름">
+        </div>
+        <div class="login-input-div">
+            <input type="password" class="login-input" name="password" id="password" autocomplete="off"
+                value="{{ form.password.value|default_if_none:'' }}" placeholder="비밀번호">
+        </div>
+        {% include 'myapp/form_errors.html' %}
+        <button type="submit" class="login-login" style="cursor: pointer;">로그인</button>
+    </form>
+    <div class="login-link">
+        계정이 없으신가요?
+        <a class="login-signup" href="{% url 'signup' %}">가입하기</a>
+    </div>
+</div>
+{% endblock %}
